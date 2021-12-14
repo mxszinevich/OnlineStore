@@ -1,0 +1,65 @@
+version: '3.7'
+services:
+  backend:
+    build: .
+    command: >
+      sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py loaddata ./fixtures/dump.json && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./:/usr/src/online_store
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=store_admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=online_store
+  redis:
+    image: redis:alpine
+    restart: always
+    expose:
+      - '6379'
+    ports:
+      - '6379:6379'
+  celery:
+    build: .
+    command: celery -A config worker -Q discounts,garbage_remove
+    volumes:
+      - .:/usr/src/online_store/celery
+    depends_on:
+      - postgres
+      - redis
+      - backend
+  celery-beat:
+    build: .
+    command: celery -A config beat -l info
+    volumes:
+      - .:/usr/src/online_store/celery
+    depends_on:
+      - postgres
+      - redis
+      - backend
+  flower:
+    build: ./
+    command: celery -A config flower
+    volumes:
+      - ./:/usr/src/online_store/flower
+    ports:
+      - 5555:5555
+    environment:
+      CELERY_BROKER_URL: redis://redis
+      CELERY_RESULT_BACKEND: redis://redis
+    depends_on:
+      - celery
+      - redis
+      - backend
+volumes:
+  postgres_data:
+
+
