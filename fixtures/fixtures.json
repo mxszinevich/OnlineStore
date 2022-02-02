@@ -1,0 +1,164 @@
+[
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "name": "Ноутбук Honor MagicBook X 15 i5/8/512 Gray",
+    "price": 24575.59040000001,
+    "creation_date": "2021-12-12T19:04:05.104Z",
+    "quantity": 5,
+    "discount": 0.2
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "name": "Ноутбук Apple MacBook Air 13 M1/8/256",
+    "price": 36859.904,
+    "creation_date": "2021-12-12T19:04:00.536Z",
+    "quantity": 5,
+    "discount": 0.2
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "name": "Ноутбук игровой Acer Nitro 5 AN515-55-50LX",
+    "price": 36453.9904,
+    "creation_date": "2021-12-12T19:03:50.835Z",
+    "quantity": 5,
+    "discount": 0.2
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "name": "Ноутбук HP 15s-eq2014ur",
+    "price": 22527.59040000001,
+    "creation_date": "2021-12-13T19:07:50.939Z",
+    "quantity": 5,
+    "discount": 0.2
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "name": "Ноутбук Honor MagicBook X 15 i3 8/256",
+    "price": 21708.390400000008,
+    "creation_date": "2021-12-07T19:38:17.004Z",
+    "quantity": 5,
+    "discount": 0.2
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "name": "Смартфон Apple iPhone 13 128GB Midnight",
+    "price": 32767.590400000012,
+    "creation_date": "2021-12-07T19:38:58.983Z",
+    "quantity": 5,
+    "discount": 0.2
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "name": "Смартфон Apple iPhone 11 64GB Black",
+    "price": 20479.590400000005,
+    "creation_date": "2021-12-07T19:39:19.644Z",
+    "quantity": 5,
+    "discount": 0.2
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "name": "Смартфон Apple iPhone 12 Pro 256GB Pacific Blue",
+    "price": 40959.590400000016,
+    "creation_date": "2021-12-12T19:03:34.538Z",
+    "quantity": 5,
+    "discount": 0.2
+  }
+},
+{
+  "model": "products.orderpayments",
+  "pk": 1,
+  "fields": {
+    "score": null,
+    "customer": null,
+    "payment": 100000.0
+  }
+},
+{
+  "model": "login.userprofile",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$kat9GL8noFhUZDExIrKcKH$MmDpwNairViOGZLsLi9Vh/R2b1Pf4/Ct/szwV62vilA=",
+    "last_login": "2021-12-12T12:10:24.063Z",
+    "email": "test@test.com",
+    "full_name": "test",
+    "is_active": true,
+    "is_admin": true,
+    "type_user": 4
+  }
+},
+{
+  "model": "login.userprofile",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$W2lTCGLzgxPo1602eWu0bV$XaQvHD//bwXVs47m97iNiDQZRlHuA0ROjFEXNYGAfts=",
+    "last_login": null,
+    "email": "customer@test.com",
+    "full_name": "Сustomer",
+    "is_active": true,
+    "is_admin": false,
+    "type_user": 4
+  }
+},
+{
+  "model": "login.userprofile",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$MfoAvRhMQfv7SdWIiZJ5rm$Me9zPdpJUosNdi2BUym5mbHdW8AeHGRK+OrmaWH03jo=",
+    "last_login": null,
+    "email": "paymaster@test.com",
+    "full_name": "Paymaster",
+    "is_active": true,
+    "is_admin": false,
+    "type_user": 2
+  }
+},
+{
+  "model": "login.userprofile",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$rs3Qan7lLpT63NU9F16YYV$1O/IA0LRm/pKSvh+elL025pDkRIZEPw3IpedGGnKlOw=",
+    "last_login": null,
+    "email": "seller@test.com",
+    "full_name": "Seller",
+    "is_active": true,
+    "is_admin": false,
+    "type_user": 1
+  }
+},
+{
+  "model": "login.userprofile",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$No4t795e6dwafuT3reRPTg$cZkGFOrklZYnhDT4DR1my4lPWIZgtuw/+QbWUKAa7rg=",
+    "last_login": null,
+    "email": "bookkeeper@test.com",
+    "full_name": "Bookkeeper",
+    "is_active": true,
+    "is_admin": false,
+    "type_user": 3
+  }
+}
+]

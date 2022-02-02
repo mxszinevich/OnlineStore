@@ -16,11 +16,11 @@ app.conf.task_routes = {'products.tasks.check_discounts_products': {'queue': 'di
 app.conf.beat_schedule = {
     'celery_check_discounts_products': {
         'task': 'products.tasks.check_discounts_products',
-        'schedule': crontab(minute='*/2')
+        'schedule': crontab(minute=0, hour=0)
     },
     'celery_delete_user_carts': {
         'task': 'products.tasks.delete_user_carts',
-        'schedule': crontab(minute='*/1')
+        'schedule': crontab(minute='*/30')
     }
 }
 app.conf.timezone = settings.TIME_ZONE

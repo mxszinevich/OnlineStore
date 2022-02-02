@@ -1,3 +1,5 @@
+from typing import Dict, Tuple
+
 from django.db import models
 from rest_framework.exceptions import APIException
 
@@ -18,7 +20,7 @@ class Product(models.Model):
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.name}, {self.price}₽, ({self.quantity}шт.)'
 
 
@@ -51,11 +53,10 @@ class Order(models.Model):
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.pk}-{self.product}-{self.status}'
 
-
-    def is_allowed_change_of_status(self, user_type):
+    def is_allowed_change_of_status(self, user_type: int) -> Dict[int, Tuple[int, int]]:
         """
         Метод возвращающий список доступных статусов заказа для сотрудника
         """
@@ -73,7 +74,7 @@ class Order(models.Model):
         if self.user is None and self.status != self.STATUS_GENERATED:
             self.status = self.STATUS_GENERATED
 
-        super().save()
+        super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
         if self.product is not None:
@@ -93,7 +94,7 @@ class Score(models.Model):
         verbose_name = 'Счет'
         verbose_name_plural = 'Счета'
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.pk}-{self.order.product.name}-{self.order.user.email}'
 
 
@@ -112,7 +113,7 @@ class OrderPayments(models.Model):
         else:
             raise APIException('Не хватает средств')
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.id}{self.order}'
 
 
@@ -125,7 +126,7 @@ class UserCart(models.Model):
     session_key = models.CharField(verbose_name='Сессия анонимного пользователя', blank=True, max_length=1000)
     customer = models.ForeignKey(UserProfile, verbose_name='Покупатель', null=True, blank=True, on_delete=models.SET_NULL)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.pk}-{self.product.name}'
 
     def save(self, *args, **kwargs):

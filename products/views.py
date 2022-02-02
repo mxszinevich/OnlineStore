@@ -221,5 +221,3 @@ class OrderPaymentsView(viewsets.ModelViewSet):
 
 
 
-
-

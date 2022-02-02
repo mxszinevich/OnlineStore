@@ -8,7 +8,7 @@ from products.models import Product, UserCart
 
 
 @app.task
-def check_discounts_products():
+def check_discounts_products() -> int:
     """
     Метод начисления скидок за товар
     Если дата создания продукта > одного месяца то скидка 20%.
@@ -23,7 +23,7 @@ def check_discounts_products():
     return products.count()
 
 @app.task
-def delete_user_carts():
+def delete_user_carts() -> int:
     """
     Метод удаления корзин анонимных пользователей с временем жизни > 30 мин
     """

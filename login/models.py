@@ -61,29 +61,29 @@ class UserProfile(AbstractBaseUser):
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'{self.get_type_user_display()} | {self.email}'
 
     @property
-    def is_store_employee(self):
+    def is_store_employee(self) -> bool:
         return bool(self.type_user in (
             UserProfile.TYPE_SELLER,
             UserProfile.TYPE_CHECKER,
             UserProfile.TYPE_BOOKKEEPER
         ))
 
-    def has_perm(self, perm, obj=None):
+    def has_perm(self, perm, obj=None) -> bool:
         "Does the user have a specific permission?"
         # Simplest possible answer: Yes, always
         return True
 
-    def has_module_perms(self, app_label):
+    def has_module_perms(self, app_label) -> bool:
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
         return True
 
     @property
-    def is_staff(self):
+    def is_staff(self) -> bool:
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
