@@ -1,6 +1,9 @@
-## Тестовое задание Python backend
+<h1 align="center"> Тестовое задание Python backend </h1>
+
 ### Запуск проекта:
 `docker-compose up -d --build`
+#### Документация по API
+`http://localhost:8000/swagger/`
 #### Данные тестовых пользователей доступны в `fixtures/fixtures.json`
 #### Данные главного администратора:
 `"email": "test@test.com", "password": "test"`
