@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "0eaba167-df07-48ed-9f26-8fb73e7efd3e",
+		"name": "OnlineStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Авторизация/Регистрация",
+			"item": [
+				{
+					"name": "Регистрация",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"full_name\":\"\",\n      \"email\": \"\",\n      \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Авторизация",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"email\": \"\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/jwt/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"jwt",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Покупателя",
+			"item": [
+				{
+					"name": "Создание корзины пользователя",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM4ODAyMzcyLCJqdGkiOiI5ZWJlZGNlY2JhNDg0NWRiOWM5Yzg2NDI2ZTlkZGRiZSIsInVzZXJfaWQiOjN9.NaCZONPnsZX-oxgfxugOX9sDXImI37UoL3o0JJ-mhHI",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/store/cart/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"cart",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр корзины",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5Mzk2NzkyLCJqdGkiOiJiOTM4M2QyNmJhZmU0MDEyYWIxOTVmMDExYmFlZmQ3YiIsInVzZXJfaWQiOjJ9.Waj9vEyeNhrv9iQ-SGM1O4BQY5P0DgeJbftndZKwppg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/store/cart/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"cart",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание заказа",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5Mzk2NzkyLCJqdGkiOiJiOTM4M2QyNmJhZmU0MDEyYWIxOTVmMDExYmFlZmQ3YiIsInVzZXJfaWQiOjJ9.Waj9vEyeNhrv9iQ-SGM1O4BQY5P0DgeJbftndZKwppg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cart\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/store/order/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр заказов",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5Mzk2NzkyLCJqdGkiOiJiOTM4M2QyNmJhZmU0MDEyYWIxOTVmMDExYmFlZmQ3YiIsInVzZXJfaWQiOjJ9.Waj9vEyeNhrv9iQ-SGM1O4BQY5P0DgeJbftndZKwppg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/store/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр счета",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5Mzk2NzkyLCJqdGkiOiJiOTM4M2QyNmJhZmU0MDEyYWIxOTVmMDExYmFlZmQ3YiIsInVzZXJfaWQiOjJ9.Waj9vEyeNhrv9iQ-SGM1O4BQY5P0DgeJbftndZKwppg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/store/score/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"score",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр товаров",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/store/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление корзины",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/store/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Оплата счета",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5Mzk2NzkyLCJqdGkiOiJiOTM4M2QyNmJhZmU0MDEyYWIxOTVmMDExYmFlZmQ3YiIsInVzZXJfaWQiOjJ9.Waj9vEyeNhrv9iQ-SGM1O4BQY5P0DgeJbftndZKwppg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "score",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "payment",
+									"value": "100000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/store/payments/?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"payments",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API сотрудников",
+			"item": [
+				{
+					"name": "Изменение статуса заказов",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5Mzk3MzQ4LCJqdGkiOiI2ZmJiY2Y4Y2RjZjc0MTk1YjNhYTIxY2Q1MjRiN2Y2YiIsInVzZXJfaWQiOjN9.Qoj76T7NmK01O0rpbV3UVlg1Z1oAhMWtGscWbSodv2s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/store/admin/order/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"admin",
+								"order",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр заказов",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5Mzk3MzQ4LCJqdGkiOiI2ZmJiY2Y4Y2RjZjc0MTk1YjNhYTIxY2Q1MjRiN2Y2YiIsInVzZXJfaWQiOjN9.Qoj76T7NmK01O0rpbV3UVlg1Z1oAhMWtGscWbSodv2s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/store/admin/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"admin",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание счета",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5Mzk3MzQ4LCJqdGkiOiI2ZmJiY2Y4Y2RjZjc0MTk1YjNhYTIxY2Q1MjRiN2Y2YiIsInVzZXJfaWQiOjN9.Qoj76T7NmK01O0rpbV3UVlg1Z1oAhMWtGscWbSodv2s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"order\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/store/score/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"score",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр счета",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5Mzk3MzQ4LCJqdGkiOiI2ZmJiY2Y4Y2RjZjc0MTk1YjNhYTIxY2Q1MjRiN2Y2YiIsInVzZXJfaWQiOjN9.Qoj76T7NmK01O0rpbV3UVlg1Z1oAhMWtGscWbSodv2s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/store/score/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"score",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление заказа",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5Mzk3MzQ4LCJqdGkiOiI2ZmJiY2Y4Y2RjZjc0MTk1YjNhYTIxY2Q1MjRiN2Y2YiIsInVzZXJfaWQiOjN9.Qoj76T7NmK01O0rpbV3UVlg1Z1oAhMWtGscWbSodv2s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/store/admin/order/2/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"admin",
+								"order",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр оплаченных заказов",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM5Mzk3MzQ4LCJqdGkiOiI2ZmJiY2Y4Y2RjZjc0MTk1YjNhYTIxY2Q1MjRiN2Y2YiIsInVzZXJfaWQiOjN9.Qoj76T7NmK01O0rpbV3UVlg1Z1oAhMWtGscWbSodv2s",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/store/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"store",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
