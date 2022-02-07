@@ -108,6 +108,7 @@ class ScoreViewSerializer(serializers.ModelSerializer):
     Сериализатор просмотра счета
     """
     order = OrderSerializer(many=False)
+
     class Meta:
         model = Score
         fields = ('id', 'creation_date', 'order')

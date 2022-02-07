@@ -1,10 +1,13 @@
 from django.db.models import Q
+
+from django_filters import rest_framework as filters
 from rest_framework.response import Response
 from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from login.models import UserProfile
 from products.exceptions import ServiceUnavailable
+from products.filters import ProductFilter, OrderFilter
 from products.mixins import ChoiceSerializerMixin
 from products.models import (
     Product,
@@ -39,6 +42,9 @@ class ProductsView(viewsets.ModelViewSet):
     http_method_names = ['get']
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
+
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = ProductFilter
 
 
 class OrderView(ChoiceSerializerMixin, viewsets.ModelViewSet):
@@ -86,6 +92,9 @@ class CustomerOrderView(ChoiceSerializerMixin, viewsets.ModelViewSet):
         'create': CustomerOrderCreateSerializer
     }
     http_method_names = ['get', 'post', 'delete']
+
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = OrderFilter
 
     def get_queryset(self):
         return Order.objects.filter(user=self.request.user)

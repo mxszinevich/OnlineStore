@@ -41,12 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # external libraries
     'rest_framework',
     'djoser',
     'drf_yasg',
+    'django_filters',
+    # apps
     'login.apps.LoginConfig',
     'products.apps.ProductsConfig',
-
 ]
 
 REST_FRAMEWORK = {

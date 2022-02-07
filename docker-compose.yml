@@ -12,6 +12,7 @@ services:
       - ./.env
     depends_on:
       - postgres
+
   postgres:
     image: postgres:12.0-alpine
     volumes:
@@ -20,6 +21,7 @@ services:
       - POSTGRES_USER=store_admin
       - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=online_store
+
   redis:
     image: redis:alpine
     restart: always
@@ -27,6 +29,7 @@ services:
       - '6379'
     ports:
       - '6379:6379'
+
   celery:
     build: .
     command: celery -A config worker -Q discounts,garbage_remove
@@ -36,6 +39,7 @@ services:
       - postgres
       - redis
       - backend
+
   celery-beat:
     build: .
     command: celery -A config beat -l info
@@ -45,6 +49,7 @@ services:
       - postgres
       - redis
       - backend
+
   flower:
     build: ./
     command: celery -A config flower
@@ -59,6 +64,7 @@ services:
       - celery
       - redis
       - backend
+
 volumes:
   postgres_data:
 
