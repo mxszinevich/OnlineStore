@@ -10,7 +10,7 @@ from products.views import (
 )
 
 router = routers.SimpleRouter()
-router.register('products', ProductsView)
+router.register('products', ProductsView, basename='products')
 router.register('order', CustomerOrderView, basename='order')
 router.register('cart', CartView, basename='cart')
 router.register('score', ScoreView, basename='score')

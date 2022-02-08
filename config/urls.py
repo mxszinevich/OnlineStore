@@ -26,7 +26,7 @@ urlpatterns += [
     path('admin/', admin.site.urls),
     path('api/users/', include('login.urls')),
     path('api/store/', include('products.urls')),
-    path('auth/jwt/create', CustomTokenObtainPairView.as_view()),
+    path('auth/jwt/create', CustomTokenObtainPairView.as_view(), name='jwt-create'),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
 ]
